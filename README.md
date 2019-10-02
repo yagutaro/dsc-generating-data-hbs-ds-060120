@@ -2,7 +2,7 @@
 # Generating Data - Codealong
 
 ## Introduction
-Data analysis often require analysts to test the efficiency/performance of an algorithm with a certain type of data. In such cases, the focus is not to answer some analytical question as we have seen earlier, but to test some machine learning hypothesis dealing with , say, comparing two different algorithms to see which one gives a higher level of accuracy. In such cases, the analysts would normally deal with synthetic random data which they generate themselves. This lab and upcoming lesson will highlight some data generation techniques that you can use later to learn new algorithms while not indulging too much into the domain knowledge.  
+Data analysis often requires analysts to test the efficiency/performance of an algorithm with a certain type of data. In such cases, the focus is not to answer some analytical questions as we have seen earlier but to test some machine learning hypothesis dealing with, say, comparing two different algorithms to see which one gives a higher level of accuracy. In such cases, the analysts would normally deal with synthetic random data that they generate themselves. This lab and the upcoming lesson will highlight some data generation techniques that you can use later to learn new algorithms while not indulging too much into the domain knowledge.  
 
 ## Objectives
 You will be able to :
@@ -12,7 +12,7 @@ You will be able to :
 
 ## Practice Datasets
 
-Practice datasets reflect simple problems that allowing testing and debugging of the algorithms and test its robustness. They are also used for understanding the behavior of algorithms in response to changes in model parameters as we shall see with some ML algorithms. Following are some of the reasons why such datasets are preferred over real world datasets:
+Practice datasets reflect simple problems that allowing testing and debugging of the algorithms and test its robustness. They are also used for understanding the behavior of algorithms in response to changes in model parameters as we shall see with some ML algorithms. Following are some of the reasons why such datasets are preferred over real-world datasets:
 - Quick and Easy generation - save data collection time  and efforts
 - Predictable outcomes - have a higher degree of confidence in the result
 - Randomization - datasets can be randomized repeatedly to inspect performance in multiple cases
@@ -22,7 +22,7 @@ In this lesson, we shall cover some of the python functions that can help us gen
 
 ## `make_blobs()`
 
-Official doc. for this function can be found [HERE](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html). This function generates isotropic Gaussian blobs for clustering and classification problems, similar to the ones we earlier saw with Naive Bayes Algorithm. We can control how many blobs to generate and the number of samples to generate, as well as a host of other properties. Let's see how to import this in python environment. 
+Official doc. for this function can be found [HERE](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html). This function generates isotropic Gaussian blobs for clustering and classification problems, similar to the ones we earlier saw with Naive Bayes Algorithm. We can control how many blobs to generate and the number of samples to generate, as well as a host of other properties. Let's see how to import this in a python environment. 
 ```python
 from sklearn.datasets.samples_generator import make_blobs
 ```
@@ -98,11 +98,12 @@ Now we can simply use the code from last example for visualization of the data
 ![png](index_files/index_16_0.png)
 
 
-The noise parameter controls the shape of the data generated , Give it different values from 0 to 1 above and inspect the outcome. 0 noise would generate perfect moon shapes and 1 would be just noise and no underlying pattern. We can also see that this pattern is not "linearly separable" i.e. we can not draw a straight line to separate classes, this helps us try our non linear classification functions (like sigmoid and tanh etc.) 
+The noise parameter controls the shape of the data generated. Give it different values from 0 to 1 above and inspect the outcome. 0 noise would generate perfect moon shapes and 1 would be just noise and no underlying pattern. We can also see that this pattern is not "linearly separable" i.e. we can not draw a straight line to separate classes, this helps us try our non-linear classification functions (like sigmoid and tanh etc.)
 
  ## `make_circles()` 
 
-This function further complicates the generated data and creates values in form of concentric circles. It also features a noise parameter , similar to make_moons(). Below is how you import this function.  
+This function further complicates the generated data and creates values in the form of concentric circles. It also features a noise parameter, similar to make_moons(). Below is how you import this function.
+
 ```python
 from sklearn.datasets import make_circles
 X, y = make_circles(n_samples=100, noise=0.05)
@@ -128,7 +129,7 @@ This is also suitable for testing complex , non-linear classifiers.
 
  ## `make_regression()`
 
-This function allows you to create datasets which can be used to test regression algorithms for linear regression. Regression can be performed with a number of algorithms ranging from least squares to more advanced deep networks. We can create datasets by setting number of samples, number of input features, level of noise, and much more. Here is how we import this function:
+This function allows you to create datasets that can be used to test regression algorithms for linear regression. Regression can be performed with a number of algorithms ranging from least squares to more advanced deep networks. We can create datasets by setting the number of samples, number of input features, level of noise, and much more. Here is how we import this function:
 
 ```python
 from sklearn.datasets import make_regression
@@ -155,7 +156,7 @@ plt.show()
 ![png](index_files/index_27_0.png)
 
 
-We can further tweak the generated parameters to create non-linear relationships which can be solved using non-linear regression techniques. 
+We can further tweak the generated parameters to create non-linear relationships that can be solved using non-linear regression techniques. 
 
 ```python
 
@@ -188,4 +189,4 @@ sklearn comes with a lot of data generation functions. We have seen a few popula
 
 ## Summary 
 
-In this lesson, we looked at generating random datasets for classification and regression tasks using sklearn's built in functions. We looked at some of the attributes for generating data and you are encouraged to dig deeper with the official doc. and see what else can you achieve with more parameters. While learning a new algorithm, these synthetic datasets help you take your focus off the domain and work only with the computational and performance aspects of the algorithm. 
+In this lesson, we looked at generating random datasets for classification and regression tasks using sklearn's built-in functions. We looked at some of the attributes for generating data and you are encouraged to dig deeper with the official doc. and see what else can you achieve with more parameters. While learning a new algorithm, these synthetic datasets help you take your focus off the domain and work only with the computational and performance aspects of the algorithm. 
