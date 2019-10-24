@@ -7,22 +7,23 @@ Data analysis often requires analysts to test the efficiency/performance of an a
 ## Objectives
 You will be able to :
 
-* Generate datasets for classification problems 
-* Generate datasets for regression problems 
+- Identify the reason why data scientists would want to generate datasets
+- Generate datasets for classification problems 
+- Generate datasets for regression problems 
 
-## Practice Datasets
+## Practice datasets
 
 Practice datasets reflect simple problems that allowing testing and debugging of the algorithms and test its robustness. They are also used for understanding the behavior of algorithms in response to changes in model parameters as we shall see with some ML algorithms. Following are some of the reasons why such datasets are preferred over real-world datasets:
-- Quick and Easy generation - save data collection time  and efforts
+- Quick and easy generation - save data collection time  and efforts
 - Predictable outcomes - have a higher degree of confidence in the result
 - Randomization - datasets can be randomized repeatedly to inspect performance in multiple cases
 - Simple data types - easier to visualize data and outcomes
 
-In this lesson, we shall cover some of the python functions that can help us generate random datasets. 
+In this lesson, we shall cover some of the Python functions that can help us generate random datasets. 
 
 ## `make_blobs()`
 
-Official doc. for this function can be found [HERE](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html). This function generates isotropic Gaussian blobs for clustering and classification problems, similar to the ones we earlier saw with Naive Bayes Algorithm. We can control how many blobs to generate and the number of samples to generate, as well as a host of other properties. Let's see how to import this in a python environment. 
+The official documentation for this function can be found [here](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html). This function generates isotropic Gaussian blobs for clustering and classification problems. We can control how many blobs to generate and the number of samples to generate, as well as a host of other properties. Let's see how to import this in a Python environment:  
 ```python
 from sklearn.datasets.samples_generator import make_blobs
 ```
@@ -31,7 +32,7 @@ from sklearn.datasets.samples_generator import make_blobs
 ```python
 # Code here 
 
-# Import other libs.
+# Import other libraries
 import matplotlib.pyplot as plt
 import pandas as pd
 ```
@@ -47,7 +48,7 @@ X, y = make_blobs(n_samples=100, centers=3, n_features=2)
 # Code here 
 ```
 
-Now we can go ahead and visualize the results as below:
+Now we can go ahead and visualize the results using this code:
     
 ```python
 # plot a scatter plot, color 
@@ -74,7 +75,8 @@ So above we see three different classes. We can generate any number of classes f
 
 ## `make_moons()`
 
-This function is used for binary classification problems with two classes and generates moon shaped patterns. This function allows you to create dataset and specify the level of noise in the data. That helps you make the dataset more complex if required to test the robustness of an algorithm . This is how you import this function from sklearn :
+This function is used for binary classification problems with two classes and generates moon shaped patterns. This function allows you to create dataset and specify the level of noise in the data. That helps you make the dataset more complex if required to test the robustness of an algorithm. This is how you import this function from `sklearn`: 
+
 ```python
 from sklearn.datasets import make_moons
 X, y = make_moons(n_samples=100, noise=0.1)
@@ -86,7 +88,7 @@ X, y = make_moons(n_samples=100, noise=0.1)
 # Code here 
 ```
 
-Now we can simply use the code from last example for visualization of the data 
+Now we can simply use the code from last example for visualizing the data: 
 
 
 ```python
@@ -98,11 +100,11 @@ Now we can simply use the code from last example for visualization of the data
 ![png](index_files/index_16_0.png)
 
 
-The noise parameter controls the shape of the data generated. Give it different values from 0 to 1 above and inspect the outcome. 0 noise would generate perfect moon shapes and 1 would be just noise and no underlying pattern. We can also see that this pattern is not "linearly separable" i.e. we can not draw a straight line to separate classes, this helps us try our non-linear classification functions (like sigmoid and tanh etc.)
+The noise parameter controls the shape of the data generated. Give it different values from 0 to 1 above and inspect the outcome. 0 noise would generate perfect moon shapes and 1 would be just noise and no underlying pattern. We can also see that this pattern is not "linearly separable" i.e. we can not draw a straight line to separate classes, this helps us try our non-linear classification functions (like _sigmoid_ and _tanh_ etc.)
 
  ## `make_circles()` 
 
-This function further complicates the generated data and creates values in the form of concentric circles. It also features a noise parameter, similar to make_moons(). Below is how you import this function.
+This function further complicates the generated data and creates values in the form of concentric circles. It also features a noise parameter, similar to `make_moons()`. Below is how you import this function: 
 
 ```python
 from sklearn.datasets import make_circles
@@ -114,7 +116,7 @@ X, y = make_circles(n_samples=100, noise=0.05)
 # Code here 
 ```
 
-Bring in the plotting code from previous examples
+Bring in the plotting code from previous examples: 
 
 
 ```python
@@ -129,16 +131,15 @@ This is also suitable for testing complex , non-linear classifiers.
 
  ## `make_regression()`
 
-This function allows you to create datasets that can be used to test regression algorithms for linear regression. Regression can be performed with a number of algorithms ranging from least squares to more advanced deep networks. We can create datasets by setting the number of samples, number of input features, level of noise, and much more. Here is how we import this function:
+This function allows you to create datasets that can be used to test regression algorithms. Regression can be performed with a number of algorithms ranging from least squares to more advanced deep networks. We can create datasets by setting the number of samples, number of input features, level of noise, and much more. Here is how we import this function:
 
 ```python
 from sklearn.datasets import make_regression
 X, y = make_regression(n_samples=100, n_features=1, noise=0.1)
 
-# plot regression dataset
+# Plot regression dataset
 plt.scatter(X,y)
 plt.show()
-
 ```
 
 
@@ -156,14 +157,15 @@ plt.show()
 ![png](index_files/index_27_0.png)
 
 
-We can further tweak the generated parameters to create non-linear relationships that can be solved using non-linear regression techniques. 
+We can further tweak the generated parameters to create non-linear relationships that can be solved using non-linear regression techniques:  
 
 ```python
 
 # Create a new y
 y2 = y**2
 y3 = y**3
-# plot regression dataset
+
+# Plot regression dataset
 plt.scatter(X,y2)
 plt.show()
 plt.scatter(X,y3)
@@ -183,10 +185,10 @@ plt.show()
 ![png](index_files/index_29_1.png)
 
 
-## Level up - Optional 
+## Level up (Optional)
 
-sklearn comes with a lot of data generation functions. We have seen a few popular ones in this context. Kindly visit [This link](https://scikit-learn.org/stable/datasets/index.html) and have a look at section 5.4 to get more practice with these functions and see other similar functions. 
+`sklearn` comes with a lot of data generation functions. We have seen a few popular ones in this context. Kindly visit [this link](https://scikit-learn.org/stable/datasets/index.html) to look at more such functions (along with some real world datasets). 
 
 ## Summary 
 
-In this lesson, we looked at generating random datasets for classification and regression tasks using sklearn's built-in functions. We looked at some of the attributes for generating data and you are encouraged to dig deeper with the official doc. and see what else can you achieve with more parameters. While learning a new algorithm, these synthetic datasets help you take your focus off the domain and work only with the computational and performance aspects of the algorithm. 
+In this lesson, we looked at generating random datasets for classification and regression tasks using `sklearn`'s built-in functions. We looked at some of the attributes for generating data and you are encouraged to dig deeper with the official documentation and see what else can you achieve with more parameters. While learning a new algorithm, these synthetic datasets help you take your focus off the domain and work only with the computational and performance aspects of the algorithm. 
